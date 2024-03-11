@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }) {
         pieces={data}
         artPieces={artPieces}
         artPiecesInfo={artPiecesInfo}
-        handleToggleFavorite
+        handleToggleFavorite={handleToggleFavorite}
       />
       {/* added artPiecesInfo prop and handleToggleFavorite*/}
     </>
