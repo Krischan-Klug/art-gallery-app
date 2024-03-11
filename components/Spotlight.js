@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import ArtPiecePreview from "./ArtPiecePreview";
 import Image from "next/image";
+import FavoriteButton from "./FavoriteButton";
 
 export default function Spotlight({ pieces }) {
   function getRandomObjectFromArray(array) {
@@ -25,6 +26,7 @@ export default function Spotlight({ pieces }) {
         height={randomSpotlight.dimensions.height}
       ></Image>
       <h4>{randomSpotlight.artist}</h4>
+      <FavoriteButton>Show your Love</FavoriteButton>
     </>
   );
 }

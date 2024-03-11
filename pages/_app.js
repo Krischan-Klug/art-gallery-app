@@ -11,18 +11,39 @@ export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(URL, fetcher);
 
   const [artPieces, setArtPieces] = useState(data);
-
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  //created a GlobalState artPiecesInfo, should be saved!!! use useLocalStorageState instead !!!
+  // setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]); -> OBSOLETE, done in line 32
+  //set artPiecesInfo to all artPiecesInfo + new slug with favoriteFlag
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  /* setArtPieces(data);
-  console.log(artPieces);
- */
+  function handleToggleFavorite(slug) {
+    const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
+    if (artPiece) {
+      setArtPiecesInfo(
+        artPiecesInfo.map((pieceInfo) =>
+          pieceInfo.slug === slug
+            ? { slug, isFavorite: !pieceInfo.isFavorite }
+            : pieceInfo
+        )
+      );
+    } else {
+      setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
+    }
+  }
   return (
     <>
       <Layout></Layout>
       <GlobalStyle />
-      <Component {...pageProps} pieces={data} artPieces={artPieces} />
+      <Component
+        {...pageProps}
+        pieces={data}
+        artPieces={artPieces}
+        artPiecesInfo={artPiecesInfo}
+        handleToggleFavorite={handleToggleFavorite}
+      />
+      {/* added artPiecesInfo prop and handleToggleFavorite*/}
     </>
   );
 }

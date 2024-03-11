@@ -1,7 +1,7 @@
 import GlobalStyle from "../styles";
 import ArtPiecePreview from "./ArtPiecePreview";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces({ pieces, handleToggleFavorite }) {
   /* console.log(pieces);
   console.log(pieces.imageSource); */
   return (
@@ -13,6 +13,7 @@ export default function ArtPieces({ pieces }) {
             name={piece.name}
             artist={piece.artist}
             dimensions={piece.dimensions}
+            onToggleFavorite={handleToggleFavorite}
           />
         </li>
       ))}
