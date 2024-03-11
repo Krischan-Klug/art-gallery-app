@@ -13,7 +13,8 @@ export default function Spotlight({ pieces }) {
     return array[randomIndex];
   }
   const randomSpotlight = getRandomObjectFromArray(pieces);
-  console.log("one object: ", randomSpotlight);
+  console.log("pieces are: ", pieces);
+  /* console.log("one object: ", randomSpotlight); */
   return (
     <>
       <h2>{randomSpotlight.name}</h2>
