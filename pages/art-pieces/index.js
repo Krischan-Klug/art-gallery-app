@@ -1,4 +1,5 @@
 import ArtPieces from "@/components/ArtPieces";
+import { useRouter } from "next/router";
 
 export default function ArtPiecesRender({ pieces, onToggleFavorite }) {
   return (
