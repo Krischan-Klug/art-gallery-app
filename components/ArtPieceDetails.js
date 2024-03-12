@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
+import FavoriteButton from "./FavoriteButton";
 
-export default function ArtPieceDetails({ piece }) {
-  console.log(piece);
+export default function ArtPieceDetails({ piece, handleToggleFavorite }) {
   const router = useRouter();
 
   return (
@@ -19,6 +19,12 @@ export default function ArtPieceDetails({ piece }) {
         <p>{piece.year}</p>
         <p>{piece.genre}</p>
         <button onClick={() => router.push("/")}>Back</button>
+        <FavoriteButton
+          onToggleFavorite={handleToggleFavorite}
+          slug={piece.slug}
+        >
+          Love me
+        </FavoriteButton>
       </div>
     </>
   );
