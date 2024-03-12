@@ -7,6 +7,7 @@ export default function ArtPiecePreview({
   artist,
   dimensions,
   handleFavoriteButton,
+  slug,
 }) {
   return (
     <>
@@ -18,7 +19,7 @@ export default function ArtPiecePreview({
         height={dimensions.height}
       ></Image>
       <h4>{artist}</h4>
-      <FavoriteButton onToggleFavorite={handleFavoriteButton}>
+      <FavoriteButton onToggleFavorite={handleFavoriteButton} slug={slug}>
         Show your Love
       </FavoriteButton>
     </>

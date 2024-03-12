@@ -9,14 +9,12 @@ const Button = styled.button`
   height: 50px;
 `;
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
+export default function FavoriteButton({ isFavorite, onToggleFavorite, slug }) {
   return (
     <>
       <Button
         type="button"
-        onClick={() => {
-          onToggleFavorite;
-        }}
+        onClick={() => onToggleFavorite(slug)}
         isFavorite={isFavorite}
         aria-label={isFavorite ? "like" : "unlike"}
       >

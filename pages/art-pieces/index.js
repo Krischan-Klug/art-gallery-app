@@ -1,7 +1,7 @@
 import ArtPieces from "@/components/ArtPieces";
 import { useRouter } from "next/router";
 
-export default function ArtPiecesRender({ pieces, onToggleFavorite }) {
+export default function ArtPiecesRender({ pieces, handleToggleFavorite }) {
   return (
     <div>
       {/* <h1>Random Art Piece</h1>
@@ -9,7 +9,7 @@ export default function ArtPiecesRender({ pieces, onToggleFavorite }) {
       <h1>Art Pieces</h1>
       <ArtPieces
         pieces={pieces}
-        onToggleFavorite={onToggleFavorite}
+        handleToggleFavorite={handleToggleFavorite}
       ></ArtPieces>
     </div>
   );

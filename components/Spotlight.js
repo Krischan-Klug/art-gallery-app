@@ -3,7 +3,7 @@ import ArtPiecePreview from "./ArtPiecePreview";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
 
-export default function Spotlight({ pieces }) {
+export default function Spotlight({ pieces, handleToggleFavorite }) {
   function getRandomObjectFromArray(array) {
     if (array.length === 0) {
       return null;
@@ -14,7 +14,8 @@ export default function Spotlight({ pieces }) {
     return array[randomIndex];
   }
   const randomSpotlight = getRandomObjectFromArray(pieces);
-  console.log("pieces are: ", pieces);
+  const randomSpotlightSlug = randomSpotlight.slug;
+  console.log("SpotlightSlug: ", randomSpotlight);
   /* console.log("one object: ", randomSpotlight); */
   return (
     <>
@@ -26,7 +27,6 @@ export default function Spotlight({ pieces }) {
         height={randomSpotlight.dimensions.height}
       ></Image>
       <h4>{randomSpotlight.artist}</h4>
-      <FavoriteButton>Show your Love</FavoriteButton>
     </>
   );
 }
